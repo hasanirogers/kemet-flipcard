@@ -2,7 +2,7 @@
   "name": "@kemet/kemet-flipcard",
   "version": "1.0.0",
   "description": "A card that has a front and back side which can be flipped.",
-  "author": "kemet-flipcard",
+  "author": "Hasani Rogers <hasani.rogers@gmail.com>",
   "license": "MIT",
   "main": "index.js",
   "module": "index.js",

@@ -12,7 +12,7 @@ import '@kemet/kemet-flipcard/kemet-flipcard-trigger.js'; // optional
 ```
 
 ```html
-<kemet-flipcard measure flip-on-over>
+<kemet-flipcard>
   <div slot="front">
     <p>This is the front of the card.</p>
   </div>

@@ -3,30 +3,90 @@
   "tags": [
     {
       "name": "kemet-flipcard",
-      "description": "A component with a title and an action counter",
+      "description": "A card that has a front and back side which can be flipped.",
       "properties": [
         {
-          "name": "title",
+          "name": "axis",
           "type": "String",
-          "description": "The title of your component",
-          "default": "Hey there"
+          "description": "The direction the card flips in. Values include: (horizontal|vertical)",
+          "default": "horizontal"
         },
         {
-          "name": "counter",
-          "type": "Number",
-          "description": "An action counter",
-          "default": 0
+          "name": "flipped",
+          "type": "Boolean",
+          "description": "Determines whether or not to show the front or back of the card.",
+          "default": false
+        },
+        {
+          "name": "flipOnHover",
+          "type": "Boolean",
+          "description": "If true, the card flips on hover and focus.",
+          "default": false
+        },
+        {
+          "name": "height",
+          "type": "String",
+          "description": "The measured height of the card in pixels.",
+          "default": "auto"
+        },
+        {
+          "name": "measure",
+          "type": "Boolean",
+          "description": "If true, the card will determine the tallest side and apply it's height to the host.",
+          "default": false
         }
       ],
       "events": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "front",
+          "description": "The front of the card."
+        },
+        {
+          "name": "back",
+          "description": "The back of the card."
+        }
+      ],
       "cssProperties": [
         {
-          "name": "--kemet-flipcard-text-color",
-          "description": "Main Text Color",
+          "name": "--kemet-flipcard-front-background",
+          "description": "The background color for the front of the card.",
           "type": "Color"
+        },
+        {
+          "name": "--kemet-flipcard-back-background",
+          "description": "The background color for the back of the card.",
+          "type": "Color"
+        },
+        {
+          "name": "::part(front)",
+          "description": "The front of the card.",
+          "type": "Part"
+        },
+        {
+          "name": "::part(back)",
+          "description": "The back of the card.",
+          "type": "Part"
+        },
+        {
+          "name": "::part(wrapper)",
+          "description": "A container for both front and back of the card.",
+          "type": "Part"
         }
       ]
+    },
+    {
+      "name": "kemet-flipcard-trigger",
+      "description": "A trigger for the flipped property of <kemet-flipcard>.",
+      "properties": [],
+      "events": [
+        {
+          "name": "kemet-flipcard-flipped",
+          "description": "Fires when clicked or when entered key is pressed for a flipped event."
+        }
+      ],
+      "slots": [],
+      "cssProperties": []
     }
   ]
 }

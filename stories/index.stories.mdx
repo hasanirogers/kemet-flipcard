@@ -1,0 +1,112 @@
+import { Story, Preview, Meta, Props } from '@open-wc/demoing-storybook';
+import { html, css } from 'lit-element';
+
+import '../kemet-flipcard.js';
+import '../kemet-flipcard-trigger.js';
+
+<Meta
+  title="KemetFlipcard"
+  parameters={{
+    component: "kemet-flipcard",
+    options: { selectedPanel: "storybookjs/knobs/panel" }
+  }}
+/>
+
+# KemetFlipcard
+
+A card that has a front and back side which can be flipped.
+
+
+## How to use
+
+### Installation
+
+```bash
+npm install @kemet/kemet-flipcard
+```
+
+```js
+import '@kemet/kemet-flipcard/kemet-flipcard.js';
+import '@kemet/kemet-flipcard/kemet-flipcard-trigger.js'; // optional
+```
+
+### Basic Usage
+```html
+<kemet-flipcard>
+  <div slot="front">
+    <p>This is the front of the card.</p>
+  </div>
+  <div slot="back">
+    <p>This is the back of the card.</p>
+  </div>
+</kemet-flipcard>
+```
+
+
+## Previews
+
+<Preview withToolbar>
+  <Story name="Fixed Dimensions">
+    {html`
+      <kemet-flipcard style="width:320px; height:240px;">
+        <div slot="front">
+          <p>This card has a fixed height and width.</p>
+          <kemet-flipcard-trigger>
+            <button>Flip Me</button>
+          </kemet-flipcard-trigger>
+        </div>
+        <div slot="back">
+          <kemet-flipcard-trigger>
+            <button>Flip me back!</button>
+          </kemet-flipcard-trigger>
+        </div>
+      </kemet-flipcard>
+    `}
+  </Story>
+</Preview>
+
+<Preview withToolbar>
+  <Story name="Measured Height">
+    {html`
+      <style>
+        img {
+          max-width: 100%;
+        }
+      </style>
+      <kemet-flipcard measure>
+        <div slot="front">
+          <p>This card will automatically adjust its height to match the tallest content.</p>
+          <kemet-flipcard-trigger>
+            <button>Flip Me</button>
+          </kemet-flipcard-trigger>
+        </div>
+        <kemet-flipcard-trigger slot="back">
+          <img src="https://placehold.it/1920x1080" alt="a placeholder" />
+        </kemet-flipcard-trigger>
+      </kemet-flipcard>
+    `}
+  </Story>
+</Preview>
+
+<Preview withToolbar>
+  <Story name="Flip On Hover">
+    {html`
+      <kemet-flipcard measure flip-on-hover axis="vertical">
+        <div slot="front">
+          <p>This card will flip on hover or focus.</p>
+        </div>
+        <div slot="back">
+          <p>It also flips vertically.</p>
+        </div>
+      </kemet-flipcard>
+    `}
+  </Story>
+</Preview>
+
+## API
+
+### KemetFlipcard
+<Props of="kemet-flipcard" />
+
+### KemetFlipcardTrigger
+<Props of="kemet-flipcard-trigger" />
