@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Kemet Flipcard</title>
+  <style>
+    body {
+      line-height: 1.5;
+      padding: 2rem;
+      background: #fafafa;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    kemet-flipcard::part(wrapper) {
+      border: 2px solid rgba(36,49,56,1);
+    }
+
+    #demo {
+      max-width: 960px;
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+  <div id="demo"></div>
+
+  <script type="module">
+    import { html, render } from 'lit-html';
+    import '../kemet-flipcard.js';
+    import '../kemet-flipcard-trigger.js';
+
+    render(
+      html`
+      <kemet-flipcard style="width:320px; height:240px;">
+        <div slot="front">
+          <p>This card has a fixed height and width.</p>
+          <kemet-flipcard-trigger>
+            <button>Flip Me</button>
+          </kemet-flipcard-trigger>
+        </div>
+        <div slot="back">
+          <kemet-flipcard-trigger>
+            <button>Flip me back!</button>
+          </kemet-flipcard-trigger>
+        </div>
+      </kemet-flipcard>
+
+      <br><br><br>
+
+      <kemet-flipcard measure>
+        <div slot="front">
+          <p>This card will automatically adjust its height to match the tallest content.</p>
+          <kemet-flipcard-trigger>
+            <button>Flip Me</button>
+          </kemet-flipcard-trigger>
+        </div>
+        <kemet-flipcard-trigger slot="back" style="display:flex;">
+          <img src="https://placehold.it/1920x1080" alt="a placeholder" />
+        </kemet-flipcard-trigger>
+      </kemet-flipcard>
+
+      <br><br><br>
+
+      <kemet-flipcard measure flip-on-hover axis="vertical">
+        <div slot="front">
+          <p>This card will flip on hover or focus.</p>
+        </div>
+        <div slot="back">
+          <p>It also flips vertically.</p>
+        </div>
+      </kemet-flipcard>
+      `,
+      document.querySelector('#demo')
+    );
+  </script>
+</body>
+</html>
