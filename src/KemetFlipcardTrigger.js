@@ -21,7 +21,6 @@ export class KemetFlipcardTrigger extends LitElement {
   }
 
   render() {
-    // eslint-disable-next-line no-unused-expressions
     return html `
       <slot @click=${() => this.trigger()} @keypress=${(event) => this.handleKeyup(event)}></slot>
     `;
